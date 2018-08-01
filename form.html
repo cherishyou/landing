@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+
+	<title></title>
+
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '1921446864821024');
+	fbq('track', 'PageView');
+	fbq("track", "Purchase");
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=1921446864821024&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122911469-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-122911469-1');
+    </script>
+
+	<link rel="stylesheet" type="text/css" href="master.css">
+
+	<!-- UIkit CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/css/uikit.min.css" />
+
+	<!-- UIkit JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/js/uikit-icons.min.js"></script>
+	
+</head>
+<body style="background-color: #3e4149;">
+
+<div id="react-wrap-15"></div>
+
+
+<script  type="text/babel">
+	//
+//class Btn_1 extends React.Component {
+//
+//	fn_click_event(e) {
+//		// e.preventDefault();
+//		fbq("track", "Purchase");
+//	}
+//
+//	render() {
+//		return (
+//			<a href="https://open.kakao.com/o/gIWeQuS" onClick={(e) => this.fn_click_event(e)} >
+//				<img class="navi-kakao" src="img/kakao.png" />
+//			</a>
+//		);
+//	}
+//}
+//
+//ReactDOM.render(
+//	<Btn_1 />,
+//	document.getElementById("react-wrap-1")
+//);
+
+
+class Btn_15 extends React.Component {
+
+	fn_click_event(e) {
+		// e.preventDefault();
+		
+		fetch("https://api.example.com/items")
+		.then(res => res.json())
+		.then(
+			(result) => {
+				console.log("result", result);
+			},
+			// Note: it's important to handle errors here
+			// instead of a catch() block so that we don't swallow
+			// exceptions from actual bugs in components.
+			(error) => {
+				console.log("error", error);
+			}
+		);
+		
+		try{
+			
+			fbq("track", "Purchase");
+			
+		} catch(e){console.log(e);}
+	}
+	
+	constructor(props) {
+		super(props);
+		this.state = {
+		  error: null,
+		  isLoaded: false,
+		  items: []
+		};
+	  }
+
+	  componentDidMount() {
+		
+	  }
+
+
+	render() {
+		return (
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLScXI0Q2pZa4qlz-RlDrtD-42WOqyV6jtfXLdn1zanrp3-OW3A/viewform?usp=sf_link" class="dnaColorButton" target="_blank" onClick={(e) => this.fn_click_event(e)}>가입 신청</a>
+		);
+	}
+}
+
+ReactDOM.render(
+	<Btn_15 />,
+	document.getElementById("react-wrap-15")
+);
+
+
+</script>
+</body>
+</html>

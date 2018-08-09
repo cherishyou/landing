@@ -445,12 +445,10 @@ html, body{
 
 		$(function(){
 
-			$("#kakao").on("click", function(){
-				fn_google_event_send("카카오 - 입력", "카카오 - 입력", "카카오 - 입력");
-				fbq("track", "Purchase");
-			});
-
-			var type = "";
+			var case_1_data = {
+                
+            };
+            var case_2_data = {};
 
 			$(".type").on("change", function(){
 				type = $(this).val();

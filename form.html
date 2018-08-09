@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="UTF-8">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
 
-	<title></title>
+	<!-- UIkit CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/css/uikit.min.css" />
 
-	<!-- Facebook Pixel Code -->
+	<!-- UIkit JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/js/uikit-icons.min.js"></script>
+	
+	<link rel="shortcut icon" type="image/png" href="/img/logo.jpg"/>
+
+
+	<title></title>
+<!-- Facebook Pixel Code -->
 	<script>
 	!function(f,b,e,v,n,t,s)
 	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,7 +30,7 @@
 	'https://connect.facebook.net/en_US/fbevents.js');
 	fbq('init', '1921446864821024');
 	fbq('track', 'PageView');
-	fbq("track", "Purchase");
+	fbq("track", "ViewContent");
 	</script>
 	<noscript><img height="1" width="1" style="display:none"
 	src="https://www.facebook.com/tr?id=1921446864821024&ev=PageView&noscript=1"
@@ -37,98 +47,712 @@
     gtag('config', 'UA-122911469-1');
     </script>
 
-	<link rel="stylesheet" type="text/css" href="master.css">
-
-	<!-- UIkit CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/css/uikit.min.css" />
-
-	<!-- UIkit JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/js/uikit.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.9/js/uikit-icons.min.js"></script>
-	
-</head>
-<body style="background-color: #3e4149;">
-
-<div id="react-wrap-15"></div>
-
-
-<script  type="text/babel">
-	//
-//class Btn_1 extends React.Component {
-//
-//	fn_click_event(e) {
-//		// e.preventDefault();
-//		fbq("track", "Purchase");
-//	}
-//
-//	render() {
-//		return (
-//			<a href="https://open.kakao.com/o/gIWeQuS" onClick={(e) => this.fn_click_event(e)} >
-//				<img class="navi-kakao" src="img/kakao.png" />
-//			</a>
-//		);
-//	}
-//}
-//
-//ReactDOM.render(
-//	<Btn_1 />,
-//	document.getElementById("react-wrap-1")
-//);
-
-
-class Btn_15 extends React.Component {
-
-	fn_click_event(e) {
-		// e.preventDefault();
-		
-		fetch("https://api.example.com/items")
-		.then(res => res.json())
-		.then(
-			(result) => {
-				console.log("result", result);
-			},
-			// Note: it's important to handle errors here
-			// instead of a catch() block so that we don't swallow
-			// exceptions from actual bugs in components.
-			(error) => {
-				console.log("error", error);
-			}
-		);
-		
-		try{
-			
-			fbq("track", "Purchase");
-			
-		} catch(e){console.log(e);}
-	}
-	
-	constructor(props) {
-		super(props);
-		this.state = {
-		  error: null,
-		  isLoaded: false,
-		  items: []
-		};
-	  }
-
-	  componentDidMount() {
-		
-	  }
-
-
-	render() {
-		return (
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLScXI0Q2pZa4qlz-RlDrtD-42WOqyV6jtfXLdn1zanrp3-OW3A/viewform?usp=sf_link" class="dnaColorButton" target="_blank" onClick={(e) => this.fn_click_event(e)}>가입 신청</a>
-		);
-	}
+<style>
+html, body{
+	padding: 0px;
+	margin: 0px;
+	word-break: keep-all;
+	word-wrap: break-word;
 }
 
-ReactDOM.render(
-	<Btn_15 />,
-	document.getElementById("react-wrap-15")
-);
+#master{
+	display: block;
+	width: 100%;
+	max-width: 450px;
+	margin: 0px auto;
+}
 
 
+.kakao{
+	background-color: #fef01b !important;
+	color: black !important;
+}
+
+.navi-kakao{
+/*	height: 50px;*/
+/*	position: absolute;*/
+/*	top: 50%;*/
+/*	transform: translateY(-50%);*/
+/*	right: 20px;*/
+}
+
+#section-3 img{
+	width: 100%;
+}
+
+#react-wrap-2{
+	text-align: center;
+}
+
+#react-wrap-2 a{
+	border-radius: 3px;
+	font-weight: bold;
+}
+
+#dnaContent{
+	display: block;
+	font-family: "Jeju Gothic", "굴림", sans-serif !important;
+	letter-spacing: 0px;
+	word-spacing: 0px;
+	margin: 0px 0px !important;
+	max-width: 100% !important;
+	width: 500px;
+	text-align: center;
+}
+	#dnaContent *{
+		font-family: "Jeju Gothic", "굴림", sans-serif !important;
+/*		max-width: 100%;*/
+	}
+	#dnaContent img{
+		display: block;
+		border: none;
+		margin: 0px 0px;
+	}
+	.dnaColorButton{
+		display: inline-block;
+		font-size: 13px;
+		margin-top: 20px;
+		display: inline-block;
+		color: #333;
+		font-weight: bold;
+		border: 2px solid rgba(0,0,0,0.8);
+		padding: 10px 25px;
+		line-height: 1em;
+		text-decoration: none;
+		-webkit-transition: color, background-color, border-color 0.3s ease-out;
+		-moz-transition: color, background-color, border-color 0.3s ease-out;
+		-o-transition: color, background-color, border-color 0.3s ease-out;
+		transition: color, background-color, border-color 0.3s ease-out;
+	}
+	.dnaBlack .dnaColorButton{
+		color: #34314c;
+	}
+	.dnaPink .dnaColorButton{
+		color: #ff7473;
+	}
+	.dnaBlue .dnaColorButton{
+		color: #47b8e0;
+	}
+	.dnaImgBox{
+		display: block;
+		position: relative;
+		width: 100%;
+		line-height: 0px;
+	}
+	.dnaImgBox img{
+		display: block;
+		width: 100%;
+		margin: 0px 0px !important;
+	}
+	.dnaSection{
+		line-height: 0px;
+		padding: 20px 10px !important;
+	}
+	.dnaYellow{
+		background-color: #ffc952;
+	}
+	.dnaPink{
+		background-color: #ff7473;
+	}
+	.dnaBlue{
+		background-color: #47b8e0;
+	}
+	.dnaBlack{
+		background-color: #34314c;
+	}
+	.dnaSection .dnaTitle{
+		text-align: center;
+		width: 100%;
+		font-size: 25px;
+		margin-bottom: 10px;
+		font-weight: bold;
+		line-height: 35px;
+		color: #fff;
+	}
+	.dnaSection .dnaText{
+		line-height: 28px;
+		font-size: 18px;
+		color: rgba(255, 255, 255, 0.9);
+		text-align: center;
+	}
+	.dnaGuideBox1{
+		line-height: 0px;
+		letter-spacing: 0px !important;
+		word-spacing: 0px !important;
+	}
+	.dnaGuideBox1:after{
+		content: "";
+		display: block;
+		clear: left;
+	}
+	.dnaLogo{
+		transform: translate(-55%, -50%) !important;
+	}
+	.dnaGuideBox1 .dnaTriangleLeft{
+		border-right: 12px solid;
+		left: -12px;
+	}
+	.dnaGuideBox1 .dnaTriangleRight{
+		border-left: 12px solid ;
+		right: -12px;
+		
+	}
+	.dnaGuideBox1 .dnaBlue .dnaTriangle{
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-color: #47b8e0;
+		border-top: 12px solid transparent;
+		border-bottom: 12px solid transparent;
+		z-index: 100;
+	}
+	.dnaGuideBox1 .dnaBlack .dnaTriangle{
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-color: #34314c;
+		border-top: 12px solid transparent;
+		border-bottom: 12px solid transparent;
+		z-index: 100;
+	}
+	.dnaGuideBox1 .dnaPink .dnaTriangle{
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-color: #ff7473;
+		border-top: 12px solid transparent;
+		border-bottom: 12px solid transparent;
+		z-index: 100;
+	}
+	.dnaGuideBox1 .dnaYellow .dnaTriangle{
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-color: #ffc952;
+		border-top: 12px solid transparent;
+		border-bottom: 12px solid transparent;
+		z-index: 100;
+	}
+	
+	.dnaGuideBox1 .dnaBox{
+		display: block;
+		position: relative;
+		float: left;
+		width: 50%;
+		padding-top: 50% !important;
+	}
+	.dnaGuideBox1 .dnaBox.dnaBoxImg{
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 30%;
+		border: none;
+	}
+	.dnaGuideBox1 .dnaBox img{
+		display: block;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 80%;
+		transform: translate(-50%, -50%);
+	}
+	.dnaWhiteLogo{
+		transform: translate(-57.5%, -40%) !important;
+	}
+	.dnaBoxTextWrap{
+		display: block;
+		position: absolute;
+		left: 0px;
+		top: 50%;
+		width: 100%;
+		transform: translateY(-50%);
+		line-height: 1.4em;
+		text-align: center;
+		box-sizing: border-box;
+		padding: 20px 0px !important;
+	}
+	.dnaBoxTextWrap .dnaBoxTitle{
+		font-weight: bold;
+		color: #000;
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	.dnaBoxTextWrap .dnaBoxText{
+		color: #545454;
+		font-size: 14px;
+	}
+	
+	
+	
+	.dnaVideoBox{
+		padding: 30px 0px !important;
+		color: #fff;
+		width: 100%;
+		text-align: center;
+		word-spacing: 0px;
+		text-align: center;
+		line-height: 1.2em;
+	}
+	.dnaVideoBox:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.dnaVideoBox b{
+		color: rgba(255, 255, 255, 0.9) !important;
+	}
+	.dnaVideoBox .dnaBox{
+		float: left;
+		width: 50%;
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+	.dnaVideoBox .dnaBox.left{
+		padding: 20px 20px 30px 20px;
+	}
+	.dnaVideoBox .dnaBox.left .dnaTitle{
+		font-weight: bold;
+		color: white;
+		font-weight: bold;
+		font-size: 19px;
+		text-align: left;
+		margin-bottom: 10px;
+	}
+	.dnaVideoBox .dnaBox.left .dnaText{
+		color: #ddd;
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 16px;
+		text-align: left;
+	}
+	.guideBox .dnaTriangleLeft{
+		border-right: 15px solid;
+		left: -15px;
+	}
+	.guideBox .dnaTriangleRight{
+		border-left: 15px solid;
+		right: -15px;
+	}
+	.guideBox .dnaBlue .dnaTriangle{
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-top: 15px solid transparent;
+		border-bottom: 15px solid transparent;
+		z-index: 100;
+		border-color: #47b8e0;
+	}
+	.guideBox .dnaBlack .dnaTriangle{
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-top: 15px solid transparent;
+		border-bottom: 15px solid transparent;
+		border-color: #34314c;
+		z-index: 100;
+	}
+	.guideBox .dnaPink .dnaTriangle{
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-top: 15px solid transparent;
+		border-bottom: 15px solid transparent;
+		border-color: #ff7473;
+		z-index: 100;
+	}
+	.guideBox .dnaBox{
+		display: block;
+		position: relative;
+		float: left;
+		width: 50%;
+		padding-top: 50% !important;
+	}
+	.guideBox .dnaBox.dnaBoxImg{
+		overflow: hidden;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 90%;
+		border: none;
+	}
+	.guideBox .dnaBox img{
+		display: block;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 80%;
+		transform: translate(-50%, -50%);
+	}
+	.dnaWhiteButton{
+		display: inline-block;
+		font-size: 13px;
+		margin-top: 20px;
+		display: inline-block;
+		font-weight: bold;
+		padding: 10px 25px !important;
+		line-height: 1em;
+		background-color: #fff;
+		border-radius: 5px;
+		text-decoration: none;
+		-webkit-transition: color, background-color, border-color 0.3s ease-out;
+		-moz-transition: color, background-color, border-color 0.3s ease-out;
+		-o-transition: color, background-color, border-color 0.3s ease-out;
+		transition: color, background-color, border-color 0.3s ease-out;
+	}
+	.dnaWhiteButton:hover{
+		border-color: rgba(255,255,255,0.8);
+		color: #fff;
+	}
+	.dnaBlack .dnaWhiteButton{
+		color: #34314c;
+	}
+	.dnaPink .dnaWhiteButton{
+		color: #ff7473;
+	}
+	.dnaBlue .dnaWhiteButton{
+		color: #47b8e0;
+	}
+	.dnaYellow .dnaWhiteButton{
+		color: #ffc952;
+	}
+	.guideBox .dnaBoxTitle{
+		color: #fff !important;
+	}
+	.guideBox .dnaBoxText{
+		color: rgba(255, 255, 255, 0.8) !important;
+	}
+	.number-box{
+			position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0px;
+	width: 100%;
+	text-align: center;
+	font-size: 60px;
+	line-height: 30px;
+	color: white;
+	font-weight: bold;
+	}
+</style>
+
+
+<script type="text/javascript">
+	(function($){
+
+		$(function(){
+
+			$("#kakao").on("click", function(){
+				fn_google_event_send("카카오 - 입력", "카카오 - 입력", "카카오 - 입력");
+				fbq("track", "Purchase");
+			});
+
+			var type = "";
+
+			$(".type").on("change", function(){
+				type = $(this).val();
+			});
+
+			$("#submit").on("click", function(e){
+				e.preventDefault();
+
+				fn_google_event_send("입력", "입력", "입력");
+				fbq("track", "Purchase");
+
+
+				if($("#age").val() == ""){
+					UIkit.modal.alert("나이를 입력해주세요");
+					return false;
+				}
+
+				if($("#nickname").val() == ""){
+					UIkit.modal.alert("활동명을 입력해주세요");
+					return false;
+				}
+
+				if(type == ""){
+					UIkit.modal.alert("연락 방법을 선택해주세요");
+					return false;
+				}
+
+				if($("#phone").val() == ""){
+					UIkit.modal.alert("연락처를 입력해주세요");
+					return false;
+				}
+
+				$("#submit").off("click");
+
+				$(this).html("<div uk-spinner></div>");
+
+				var txt = "";
+
+				txt += "\n";
+				txt += "나이: ";
+				txt += $("#age").val();
+				txt += "\n";
+				txt += "\n";
+				txt += "별명: ";
+				txt += $("#nickname").val();
+				txt += "\n";
+				txt += "\n";
+				txt += "타입: ";
+				txt += type;
+				txt += "\n";
+				txt += "\n";
+				txt += "연락처: ";
+				txt += $("#phone").val();
+				txt += "\n";
+				txt += "\n";
+				txt += "storage nickname: ";
+				txt += localStorage.getItem("nickname");
+				txt += "\n";
+				txt += "\n";
+				txt += "2기 정보";
+				txt += "\n";
+
+				localStorage.setItem("nickname", $("#nickname").val());
+
+				$.ajax({
+					url: "https://api.telegram.org/bot646178340:AAFFSUIdntt4OpuEMAzTIl4bSyhgG_ts7Zo/sendMessage",
+					tupe: "GET",
+					data: {
+						chat_id: "375313813",
+						text: txt
+					},
+					success: function(response){
+						UIkit.modal.alert('신청해주셔서 감사합니다!').then(function(){
+							location.reload(true);
+						});
+
+					}
+				});
+			});
+		});
+	})(jQuery);
 </script>
+</head>
+<body style="background-color: #3e4149;">
+	<div id="master" style="background-color: white;">
+<!--
+		<div id="section-1" style="z-index: 980; height: 80px;" class="uk-padding-remove uk-overflow-hidden uk-card uk-card-default uk-card-body">
+			<img style="height: 80px; float: left;" class="" src="img/logo.png">
+			<div style="float: right;" id="react-wrap-1"></div>
+			<div style="clear: both;"></div>
+		</div>
+-->
+		<div id="section-2" class="uk-text-center uk-padding"  >
+			<b>체리쉬유</b>는 <br />
+			앙금 플라워 떡 케이크 판매와<br />
+			클래스를 열고 있는<br />
+			대구 <b>공방</b>입니다
+		</div>	
+		<div>
+			<img style="width: 100%;" src="img/pic.jpg">
+		</div>
+<div id="dnaContent">
+	<div class="dnaSection dnaBlack" >
+		<div class="dnaTitle">Cherish You</div>
+		<div class="dnaText">재료는 모두 준비되어 있습니다</div>
+		<div class="dnaText">100% 예약제로 운영됩니다</div>
+	</div>
+	<div class="dnaSection dnaBlue" >
+		<div class="dnaTitle uk-margin-remove">수업 과정</div>
+	</div>
+	<div class="dnaGuideBox1">
+		<div class="dnaBox" >
+			<div class="dnaBoxTextWrap">
+				<div class="dnaBoxTitle">재밌다!</div>
+				<div class="dnaBoxText">아래 리뷰를 구경해보세요!</div>
+				<div class="dnaBoxText">이제 주말이 즐거워질 거예요🙌🙌</div>
+			</div>
+		</div>
+		<div class="dnaBox dnaYellow dnaBoxImg" style="" >
+			<div class="number-box">1</div>
+			<div class="dnaTriangle dnaTriangleLeft"></div>
+		</div>
+		
+		<div class="dnaBox dnaPink dnaBoxImg" style="" >
+			<div class="number-box">2</div>
+			<div class="dnaTriangle dnaTriangleRight"></div>
+		</div>
+		<div class="dnaBox" >
+			<div class="dnaBoxTextWrap">
+				<div class="dnaBoxTitle">회비가 없어요!</div>
+				<div class="dnaBoxText">관리자가 보드 게임을</div>
+				<div class="dnaBoxText">많이 사두었어요🙌🙌</div>
+                <div class="dnaBoxText">회비 걷는 것도 전혀 없어요</div>
+			</div>
+		</div>
+		<div class="dnaBox" >
+			<div class="dnaBoxTextWrap">
+				<div class="dnaBoxTitle">철저한 규칙</div>
+				<div class="dnaBoxText">갠톡 불가능!</div>
+				<div class="dnaBoxText">완전하게 오픈된 </div>
+				<div class="dnaBoxText">사람 많은 공간에서 만나요!!</div>
+                <a href="register.html" class="dnaColorButton">규칙 구경</a>
+			</div>
+		</div>
+		<div class="dnaBox dnaBlue dnaBoxImg" style="" >
+			<div class="number-box">3</div>
+			<div class="dnaTriangle dnaTriangleLeft"></div>
+		</div>
+	</div>
+	<div>
+		<img style="width: 100%;" src="img/pic-1.jpg">
+	</div>
+	<div class="dnaSection dnaBlack uk-margin-small-bottom" >
+		<div class="dnaTitle">예약 신청</div>
+		<div class="dnaText">아래 가격은 재료비 포함 가격입니다</div>
+		<div class="dnaText">수업 인원은 최대 4명입니다</div>
+		<div class="dnaText">선택해주세요</div>
+	</div>
+	<div>
+		<div class="uk-grid-small uk-child-width-expand uk-text-center" uk-grid >
+			<div id="case-1-button" uk-toggle="target: .toggle-target; animation: uk-animation-fade; queued: true; duration: 300" style="cursor: pointer;">
+				<div id="case-1" class="uk-card uk-card-default uk-box-shadow-hover-small">
+					<div class="uk-card-media-top">
+						<img src="img/pic.jpg" alt="">
+					</div>
+					<div class="uk-card-body">
+						<h3 class="uk-card-title uk-margin-small-bottom">1호</h3>
+						<p class="uk-margin-smal">
+							￦70,000<br />
+							약 3시간
+						</p>
+					</div>
+				</div>
+			</div>
+			<div id="case-2-button" uk-toggle="target: .toggle-target; animation: uk-animation-fade; queued: true; duration: 300"  style="cursor: pointer;">
+				<div class="uk-card uk-card-default uk-box-shadow-hover-small">
+					<div class="uk-card-media-top">
+						<img src="img/c1.jpg" alt="">
+					</div>
+					<div class="uk-card-body">
+						<h3 class="uk-card-title uk-margin-small-bottom">컵 케이크 <span style="margin-right: -15px;" class="uk-text-meta">(2구)</span></h3>
+						<p class="uk-margin-smal">
+							￦35,000<br />
+							약 1시간
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="toggle-target">
+			<form id="case-1-form" class="uk-form-stacked uk-text-left uk-padding">
+				<h2 class="uk-text-center uk-margin-remove-bottom">1호</h2>
+				<p class="uk-text-center uk-margin-remove">￦70,000</p>
+				<div class="uk-margin">
+					<label class="uk-form-label" for="case-1-name">이름</label>
+					<div class="uk-form-controls">
+						<input class="uk-input" id="case-1-name" type="text" placeholder="예약하시는 분 이름을 입력해주세요">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<label class="uk-form-label" for="case-1-phone">연락처</label>
+					<div class="uk-form-controls">
+						<input class="uk-input" id="case-1-phone" type="tel" placeholder="연락처를 입력해주세요">
+					</div>
+				</div>
+
+
+				<div class="uk-margin">
+					<div class="uk-form-label">선택 사항</div>
+					<div class="uk-form-controls">
+						<label><input value="떡 시트 업그레이드 (￦5,000)" class="uk-checkbox" type="checkbox" name="checkbox" uk-toggle="target: #case-1-upgrade-wrap; animation: uk-animation-fade"> 떡 시트 업그레이드 (￦5,000)</label><br>
+						<label><input value="떡 시트 업그레이드 (￦5,000)" class="uk-checkbox" type="checkbox" name="checkbox"> 백설기 만들기 체험 (￦10,000)</label><br>
+						<label><input value="떡 시트 업그레이드 (￦5,000)" class="uk-checkbox" type="checkbox" name="checkbox"> 컵 케이크 2구 추가 (￦15,000)</label>
+					</div>
+				</div>
+				<div id="case-1-upgrade-wrap" class="uk-margin" hidden>
+					<label class="uk-form-label" for="form-stacked-select">업그레이드 설기 선택</label>
+					<div class="uk-form-controls">
+						<select class="uk-select" id="form-stacked-select">
+							<option value="쑥">쑥</option>
+							<option value="단호박">단호박</option>
+							<option value="아로니아">아로니아</option>
+							<option value="초코치즈">초코치즈</option>
+							<option value="대추고">대추고</option>
+						</select>
+					</div>
+				</div>
+				<button class="uk-button uk-button-primary">예약 신청</button>
+			</form>
+		</div>
+		<div class="toggle-target" hidden>
+			<form id="case-2-form" class="uk-form-stacked uk-text-left uk-padding">
+				<h2 class="uk-text-center uk-margin-remove-bottom">컵 케이크</h2>
+				<p class="uk-text-center uk-margin-remove">￦35,000</p>
+				<div class="uk-margin">
+					<label class="uk-form-label" for="form-stacked-text">이름</label>
+					<div class="uk-form-controls">
+						<input class="uk-input" id="form-stacked-text" type="text" placeholder="예약하시는 분 이름을 입력해주세요">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<label class="uk-form-label" for="form-stacked-text">연락처</label>
+					<div class="uk-form-controls">
+						<input class="uk-input" id="form-stacked-text" type="tel" placeholder="연락처를 입력해주세요">
+					</div>
+				</div>
+
+
+				<div class="uk-margin">
+					<div class="uk-form-label">선택 사항</div>
+					<div class="uk-form-controls">
+						<label><input class="uk-checkbox" type="checkbox" name="checkbox" uk-toggle="target: #case-2-upgrade-wrap; animation: uk-animation-fade"> 떡 시트 업그레이드 (￦5,000)</label><br>
+						<label><input class="uk-checkbox" type="checkbox" name="checkbox"> 백설기 만들기 체험 (￦10,000)</label><br>
+						<label><input class="uk-checkbox" type="checkbox" name="checkbox"> 컵 케이크 2구 추가 (￦15,000)</label>
+					</div>
+				</div>
+				<div id="case-2-upgrade-wrap" class="uk-margin" hidden>
+					<label class="uk-form-label" for="form-stacked-select">업그레이드 설기 선택</label>
+					<div class="uk-form-controls">
+						<select class="uk-select" id="form-stacked-select">
+							<option value="쑥">쑥</option>
+							<option value="단호박">단호박</option>
+							<option value="아로니아">아로니아</option>
+							<option value="초코치즈">초코치즈</option>
+							<option value="대추고">대추고</option>
+						</select>
+					</div>
+				</div>
+				<button class="uk-button uk-button-primary">예약 신청</button>
+			</form>
+		</div>
+	</div>
+	<div>
+		<div>
+			<img style="width: 100%;" src="img/map.png">
+		</div>
+	</div>
+</div>
+<!--
+		<div id="section-3" class="">
+			<div class="dnaSection dnaBlack" >
+				<div class="dnaTitle" style="margin-bottom: 0px !important;">안내 받는 방법</div>
+				<div class="dnaText">1. 오른쪽 위 카톡 아이콘이나 안내 받기 버튼을 클릭해주세요!</div>
+			</div>
+			<img src="img/0.png" alt="" >
+			<div class="dnaSection dnaBlue uk-margin-top" >
+				<div class="dnaText">2. 카카오 프렌즈를 선택해주세요!</div>
+			</div>
+			<img src="img/1.png" alt="" >
+			<div class="dnaSection dnaYellow uk-margin-top" >
+				<div class="dnaText">3. 닉네임을 적어주세요!</div>
+			</div>
+			<img src="img/2.png" alt="" >
+			<div class="dnaSection dnaPink uk-margin-top" >
+				<div class="dnaText">4. 마지막으로 완료 버튼 클릭하면 입장됩니다!</div>
+			</div>
+			<img src="img/3.png" alt="" >
+		</div>
+		<div id="react-wrap-2" class="uk-margin-medium-top" ></div>
+-->
+	</div>
 </body>
 </html>
